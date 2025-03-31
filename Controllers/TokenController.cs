@@ -23,7 +23,7 @@ namespace jwt_token.Controllers
             _configuration = configuration;
         }
 
-        [HttpPost("register")]
+        [HttpPost("trashcan/register")]
         public  ActionResult<User> Register(UserDto request)
         {
             CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
@@ -33,7 +33,7 @@ namespace jwt_token.Controllers
             return Ok(user);
         }
 
-        [HttpPost("Login")]
+        [HttpPost("trashcan/login")]
         public ActionResult<string> Login(UserDto request) 
         {
             if (user.Username != request.Username) 
